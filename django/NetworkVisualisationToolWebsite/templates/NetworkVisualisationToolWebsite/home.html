@@ -1,0 +1,54 @@
+<!-- NetworkVisualisationToolWebsite/templates/NetworkVisualisationToolWebsite/home.html -->
+
+{% extends "base.html" %}
+
+{% block page_content %}
+<link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+<style>
+
+    h1 {text-align: center; 
+        color:white; 
+        background-color: #005597; 
+        font-family: "Inter";}
+
+</style>
+<h1><b>EMERGENCE <br/> Network Visualisation </b></h1>
+<p style="padding-top: 250px; font-size: 20px; color: #005597; font-family: Inter; text-align: right;" >
+<b>Network Visualisation Key</b><br/> 
+<span style="color:red; font-size: 10px;"> <b>COMPUTER SCIENTISTS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:red; font-size: 10px;"> <b>RED.</b><br/></span> 
+<span style="color:blue; font-size: 10px;"> <b>ROBOTICISTS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:blue; font-size: 10px;"> <b>BLUE.</b><br/></span> 
+<span style="color:#FFE87C; font-size: 10px;"> <b>HEALTHCARE PROFESSIONALS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:#FFE87C; font-size: 10px;"> <b>YELLOW.</b><br/></span> 
+<span style="color:green; font-size: 10px;"> <b>DESIGN ENGINEERING AND INNOVATION SPECIALISTS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:green; font-size: 10px;"> <b>YELLOW.</b><br/></span>
+<span style="color:magenta; font-size: 10px;"> <b>ELECTRONIC ENGINEERS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:magenta; font-size: 10px;"> <b>MAGENTA.</b><br/></span>
+<span style="color:purple; font-size: 10px;"> <b>SOCIAL CARE WORKERS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:purple; font-size: 10px;"> <b>PURPLE.</b><br/></span>
+<span style="color:orange; font-size: 10px;"> <b>PHYSIOTHERAPISTS</b></span> 
+<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
+<span style="color:orange; font-size: 10px;"> <b>ORANGE.</b><br/></span>
+</p>
+
+<div class="container" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+</div>
+
+<script>
+    function myFunction(x) {
+  x.classList.toggle("change");
+}
+</script>
+{% extends "base.html" %}
+
+{% block page_content %}
