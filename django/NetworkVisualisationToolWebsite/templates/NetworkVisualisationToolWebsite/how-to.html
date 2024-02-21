@@ -10,8 +10,45 @@
         background-color: #005597; 
         font-family: "Inter";}
 
+    h2{text-align: center;
+       color:#005597;
+       font-size: 40px;
+       font-family: "Inter";
+       padding-top: 25px;}
+
 </style>
 <h1><b>EMERGENCE <br/> Network Visualisation </b></h1>
+<h2><b>Network Visualisation Tutorial</b></h2>
+<p style="text-align: left; padding-top: 30px; color:#1A296B; font-family: Inter; font-size:12px ">
+<b>
+The network visualisation tool is simple and easy to use and has a few main features:<br/>
+<br>
+Legend: Can be referenced to find the unique colour coding for each specialty.<br/>
+<br>
+Node/Member Hovering: Hover over each node to reveal further information about the<br/> member represented, i.e. name, institution, job title, specialty, location, and research<br/> theme of interest.<br/>
+<br>
+Node Filtering: Allows the user to filter to find a specific category of node,for example<br/> a member who specialises in computer science, or a member who is based in London.<br/>
+<br>
+Node Physics: Each node on the graph is fully interactive, you can drag the nodes with<br/> your mouse, if the node is connected to another with an edge both nodes will move.<br/>
+<br>
+Steps to filter nodes:<br/>
+<br>
+1. Under the 'Select a network item' dropdown select the 'node' option<br/>
+<br>
+2. Under the 'Select a property' dropdown select the property to filter by i.e. Institution<br/>
+<br>
+3. Under the 'Select value(s)' dropdown select the actual value of the property you<br/> selected in step 2, i.e. 'University of Nottingham'<br/>
+<br>
+    a.  The 'include-central-node' option is used to allow the central node to appear<br/> alongside the filtered nodes, toggle this on if you want to see the connected graph<br/> with the filtered nodes, or off if you just want to see the filtered nodes.<br/>
+<br>
+    b. The 'include-legend-nodes' option is used to allow the legend nodes to appear<br/> alongside the filtered nodes, toggle this on if you want to see the legend with the<br/> filtered nodes, or off if you just want to see the filtered nodes.<br/>
+<br>
+4. Click the 'Filter' button to the right of the 'Select value(s)' dropdown to apply the<br/> selected filter.<br/>
+<br>
+5. Press the 'Reset Selection' button to the right of the 'Filter' button to undo the filter.<br/>
+</b>
+</p>
+
 
 
 {% endblock page_content%}
