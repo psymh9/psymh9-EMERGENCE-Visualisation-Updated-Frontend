@@ -3,51 +3,305 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+
 <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 <style>
+
+    form{
+      position: relative;
+      padding-top: 25px;
+      margin-inline-start: 15px;
+      z-index: 2;
+    }
+
+    select
+    {
+      margin-inline-start: 15px;
+      position: relative; 
+      z-index: 2;
+    } 
 
     h1 {text-align: center; 
         color:white; 
         background-color: #005597; 
         font-family: "Inter";}
+    
+    .inline-block-element{
+      display: inline-block;
+      width: 1000px;
+      height: 1000px;
+    }
+
+    .rectangle{
+        position: absolute;
+        top:1;
+        left:10;
+        height: 100px;
+        width: 1300px;
+        background-color: #005597;
+        display:  block; 
+        text-align: left;
+        z-index: 0;
+    }
+    
+    .dropbtn {
+        background-color: white;
+        color: black;
+        padding: 5px;
+        font-size: 10px;
+        position: relative;
+        margin-inline-start: 65px;
+        margin-top: 35px;
+        display: inline-block;
+        border: none;
+    }
+
+    .button{
+        background-color: white;
+        color: black;
+        padding: 10px;
+        font-size: 10px;
+        position: relative;
+        margin-inline-start: 65px;
+        margin-top: 35px;
+        display: inline-block;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #f1f1f1;
+        min-width: 50px;
+        min-height: 25px;
+        margin-inline-start: 35px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+ .dropdown-content a {
+        color: black;
+        padding: 8px 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: white;}
 
 </style>
+
 <h1><b>EMERGENCE <br/> Network Visualisation </b></h1>
-<p style="padding-top: 250px; font-size: 20px; color: #005597; font-family: Inter; text-align: right;" >
+<br/>
+<br/>
+<br/>
+<div class="rectangle"></div>
+<form action="applyFiltrationOptions/filterCategory1/filterParameter1/filterCategory2/filterParameter2">
+  <select name="filterCategory1" id="filterCategory1" onchange="javascript: dynamicDropdownCategory1(this.options[this.selectedIndex].value)" onload="name"> 
+    <option value="Discipline">Discipline</option> 
+      <option value="Location">Location</option> 
+      <option value="Institution">Institution</option> 
+      <option value="Alphabetical">Alphabetical</option> 
+      </select>
+
+  <select name="filterParameter1" id="filterParameter1"> 
+      <option value="All">All</option>  
+      <option value="Computer Science">Computer Science</option> 
+      <option value="Robotics">Robotics</option> 
+      <option value="Design Engineering and Innovation">Design Engineering and Innovation</option> 
+      <option value="Electronic Engineering">Electronic Engineering</option> 
+      <option value="Social Care">Social Care Workers</option> 
+      <option value="Physiotherapy">Physiotherapy</option> 
+      </select>
+
+  <select name="filterCategory2" id="filterCategory2" onchange="javascript: dynamicDropdownCategory2(this.options[this.selectedIndex].value)"> 
+      <option value="Discipline">Discipline</option> 
+      <option value="Location">Location</option> 
+      <option value="Institution">Institution</option> 
+      <option value="Alphabetical">Alphabetical</option> 
+      </select>
+
+  <select name="filterParameter2" id="filterParameter2"> 
+      <option value="All">All</option>  
+      <option value="Computer Science">Computer Science</option> 
+      <option value="Robotics">Robotics</option> 
+      <option value="Design Engineering and Innovatio">Design Engineering and Innovation</option> 
+      <option value="Electronic Engineering">Electronic Engineering</option> 
+      <option value="Social Care">Social Care Workers</option> 
+      <option value="Physiotherapy ">Physiotherapy</option> 
+      </select>
+
+  <input type="submit" value="Filter"> 
+  <input type="submit" value="Reset" formaction="resetFiltrationOptions/"> 
+</form>
+<p style="padding-top: 250px; font-size: 15px; color: #005597; font-family: Inter; text-align: right;" >
 <b>Network Visualisation Key</b><br/> 
-<span style="color:red; font-size: 10px;"> <b>COMPUTER SCIENTISTS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:red; font-size: 10px;"> <b>RED.</b><br/></span> 
-<span style="color:blue; font-size: 10px;"> <b>ROBOTICISTS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:blue; font-size: 10px;"> <b>BLUE.</b><br/></span> 
-<span style="color:#FFE87C; font-size: 10px;"> <b>HEALTHCARE PROFESSIONALS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:#FFE87C; font-size: 10px;"> <b>YELLOW.</b><br/></span> 
-<span style="color:green; font-size: 10px;"> <b>DESIGN ENGINEERING AND INNOVATION SPECIALISTS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:green; font-size: 10px;"> <b>YELLOW.</b><br/></span>
-<span style="color:magenta; font-size: 10px;"> <b>ELECTRONIC ENGINEERS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:magenta; font-size: 10px;"> <b>MAGENTA.</b><br/></span>
-<span style="color:purple; font-size: 10px;"> <b>SOCIAL CARE WORKERS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:purple; font-size: 10px;"> <b>PURPLE.</b><br/></span>
-<span style="color:orange; font-size: 10px;"> <b>PHYSIOTHERAPISTS</b></span> 
-<span style="color:black; font-size: 10px;"> <b>are coloured in</b></span>
-<span style="color:orange; font-size: 10px;"> <b>ORANGE.</b><br/></span>
+<span style="color:red; font-size: 8px;"> <b>COMPUTER SCIENTISTS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:red; font-size: 8px;"> <b>RED.</b><br/></span> 
+<span style="color:blue; font-size: 8px;"> <b>ROBOTICISTS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:blue; font-size: 8px;"> <b>BLUE.</b><br/></span> 
+<span style="color:#FFE87C; font-size: 8px;"> <b>HEALTHCARE PROFESSIONALS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:#FFE87C; font-size: 8px;"> <b>YELLOW.</b><br/></span> 
+<span style="color:green; font-size: 8px;"> <b>DESIGN ENGINEERING AND INNOVATION SPECIALISTS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:green; font-size: 8px;"> <b>YELLOW.</b><br/></span>
+<span style="color:magenta; font-size: 8px;"> <b>ELECTRONIC ENGINEERS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:magenta; font-size: 8px;"> <b>MAGENTA.</b><br/></span>
+<span style="color:purple; font-size: 8px;"> <b>SOCIAL CARE WORKERS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:purple; font-size: 8px;"> <b>PURPLE.</b><br/></span>
+<span style="color:orange; font-size: 8px;"> <b>PHYSIOTHERAPISTS</b></span> 
+<span style="color:black; font-size: 8px;"> <b>are coloured in</b></span>
+<span style="color:orange; font-size: 8px;"> <b>ORANGE.</b><br/></span>
 </p>
 
-<div class="container" onclick="myFunction(this)">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
+<div id="contentframe" style="position:relative; top: -300px; left: 0px;">
+<iframe src="test/" type="text/html" title="Test embed" width="950" height="950"></iframe> 
 </div>
 
-<script>
-    function myFunction(x) {
-  x.classList.toggle("change");
-}
+<script language="javascript" type="text/javascript">
+
+    function sortOptionsAlphabetically(sortOptions){
+      var options = $("# ${sortOptions} option");                    // Collect options         
+      options.detach().sort(function(a,b) {               // Detach from select, then Sort
+          var at = $(a).text();
+          var bt = $(b).text();         
+          return (at > bt)?1:((at < bt)?-1:0);            // Tell the sort function how to order
+      });
+      options.appendTo("# ${sortOptions}");
+    }
+
+
+    function dynamicDropdownCategory1(selectedListIndex)
+    {
+      const memberDiscliplines = ["All", "Computer Science", "Robotics", 
+                                "Design Engineering and Innovation", "Electronic Engineering",
+                                "Social Care Workers", "Physiotherapy"]
+
+      const memberLocations = ["All", "London", "Nottingham", "Leeds", "Sheffield", "Edinburgh", 
+                                "Hertfordshire", "Glasgow", "Aberstwyth", "Leicester", "York", 
+                              "Bristol", "Plymouth", "Swansea", "Southampton", "Aberdeen", "Cardiff",
+                              "Cambridge", "Machester"]
+
+      const memberAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+                              "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+      
+      const memberInstitutions = ["University of Nottingham", "Sheffield Hallam University", "Heriot-Watt University", "Cardiff University",
+                                  "University of Hertfordshire", "University of Sheffield", "University of Glasgow", "Aberstwyth University",
+                                "University of Glasgow", "Nottingham Trent University", "Trinity College Dublin", "Simplicare Ltd", "PIRg HErts Ltd",
+                                "ORBIT RRI", "University of Ediburgh", "Scottish Care", "UWE Bristol", "University of York", "Nhs", "Archus", 
+                                "University of the West of England", "University of Plymouth", "Bristol Robotics University, UWE", "Swansea University",
+                                "King's College London", "Loughborough University", "Queen Mary University of London", "University of Southampton",
+                                "University of Aberdeen", "Anglia Ruskin University", "Edinburgh Centre for Robotics", "UCL", "University of Lincoln",
+                              "IBM UK Ltd", "Konpanion (BOROBO ltd)", "Astraline TEC Ltd a Johnnie Johnson business", "BOW (formerly Cyberselves)", "Oval Design",
+                              "PIRG", "Blackwood Homes and Care", "BranchRobotics", "Skills for Care"]
+      switch(selectedListIndex){
+        case "Disclipline":
+          for (let i = 0; i <  memberDiscliplines.length; i++)
+          {
+            document.getElementById("filterParameter1").options[i] = new Option(memberDiscliplines[i]);
+            selectedListIndex.value = memberDiscliplines;
+          } 
+          break;
+        case "Location":
+          for (let i = 0; i < memberLocations.length; i++)
+          {
+            document.getElementById("filterParameter1").options[i] = new Option(memberLocations[i]);
+            selectedListIndex.value = memberLocations[i];
+          }
+          break;
+        case "Alphabetical":
+          for (let i = 0; i < memberAlphabet.length; i++)
+          {
+            document.getElementById("filterParameter1").options[i] = new Option(memberAlphabet[i]);
+            selectedListIndex.value = memberAlphabet[i];
+          }
+          break;
+        case "Institution":
+          for (let i = 0; i < memberInstitutions.length; i++)
+          {
+            document.getElementById("filterParameter1").options[i] = new Option(memberInstitutions[i]);
+            selectedListIndex.value = memberInstitutions[i];
+          }
+          break;
+      }
+        return true;
+  }
+
+  function dynamicDropdownCategory2(selectedListIndex)
+    {
+      const memberDiscliplines = [ "All", "Computer Science", "Robotics", 
+                                "Design Engineering and Innovation", "Electronic Engineering",
+                                "Social Care Workers", "Physiotherapy"]
+
+      const memberLocations = ["All", "London", "Nottingham", "Leeds", "Sheffield", "Edinburgh", 
+                                "Hertfordshire", "Glasgow", "Aberstwyth", "Leicester", "York", 
+                              "Bristol", "Plymouth", "Swansea", "Southampton", "Aberdeen", "Cardiff",
+                              "Cambridge", "Machester"]
+
+      const memberAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+                              "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+      
+      const memberInstitutions = ["University of Nottingham", "Sheffield Hallam University", "Heriot-Watt University", "Cardiff University",
+                                  "University of Hertfordshire", "University of Sheffield", "University of Glasgow", "Aberstwyth University",
+                                "University of Glasgow", "Nottingham Trent University", "Trinity College Dublin", "Simplicare Ltd", "PIRg HErts Ltd",
+                                "ORBIT RRI", "University of Ediburgh", "Scottish Care", "UWE Bristol", "University of York", "Nhs", "Archus", 
+                                "University of the West of England", "University of Plymouth", "Bristol Robotics University, UWE", "Swansea University",
+                                "King's College London", "Loughborough University", "Queen Mary University of London", "University of Southampton",
+                                "University of Aberdeen", "Anglia Ruskin University", "Edinburgh Centre for Robotics", "UCL", "University of Lincoln",
+                              "IBM UK Ltd", "Konpanion (BOROBO ltd)", "Astraline TEC Ltd a Johnnie Johnson business", "BOW (formerly Cyberselves)", "Oval Design",
+                              "PIRG", "Blackwood Homes and Care", "BranchRobotics", "Skills for Care"]
+      switch(selectedListIndex){
+        case "Disclipline":
+          for (let i = 0; i <  memberDiscliplines.length; i++)
+          {
+            document.getElementById("filterParameter2").options[i] = new Option(memberDiscliplines[i]);
+            selectedListIndex.value = memberDiscliplines[i]; 
+          } 
+          break;
+        case "Location":
+          for (let i = 0; i < memberLocations.length; i++)
+          {
+            document.getElementById("filterParameter2").options[i] = new Option(memberLocations[i]);
+            selectedListIndex.value = memberDiscliplines[i]; 
+          }
+          break;
+        case "Alphabetical":
+          for (let i = 0; i < memberAlphabet.length; i++)
+          {
+            document.getElementById("filterParameter2").options[i] = new Option(memberAlphabet[i]);
+            selectedListIndex.value = memberAlphabet[i];
+          }
+          break;
+        case "Institution":
+          for (let i = 0; i < memberInstitutions.length; i++)
+          {
+            document.getElementById("filterParameter2").options[i] = new Option(memberInstitutions[i]);
+            selectedListIndex.value = memberDiscliplines[i];
+          }
+          break;
+      }
+        return true;
+  }
+
+
+  
+
 </script>
+
+
 
 {% endblock page_content %}
